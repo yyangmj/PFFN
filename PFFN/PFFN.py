@@ -40,7 +40,7 @@ import torch.nn.functional as F
 
 
 class EncoderLayer(torch.nn.Module):
-    def __init__(self, input_encoder_dim, hidden_dim, dim_attn_s, n_heads=2, dropout=0.1):
+    def __init__(self, input_encoder_dim, hidden_dim, dim_attn_s, n_heads=1, dropout=0.1):
         super(EncoderLayer, self).__init__()
         self.hidden_dim = hidden_dim
         self.attn = Encoder_MultiHeadAttention(input_encoder_dim, dim_attn_s, n_heads)
@@ -80,7 +80,7 @@ class att_EncoderLayer(torch.nn.Module):
         return fea_att
 
 class PFFN(torch.nn.Module):
-    def __init__(self, input_encoder_dim, input_att_dim, hidden_dim, dim_attn_s=32, dim_val=32, n_encoder_layers=1, n_heads=2):
+    def __init__(self, input_encoder_dim, input_att_dim, hidden_dim, dim_attn_s=32, dim_val=32, n_encoder_layers=1, n_heads=1):
 
         super(PFFN, self).__init__()
         #self.dec_seq_len = dec_seq_len
